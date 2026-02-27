@@ -1,0 +1,64 @@
+button {
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.sidebar .sidebar-content {
+    background-color: #111827;
+}
+
+button {
+    border-radius: 8px;
+    height: 45px;
+    font-weight: 600;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+h3 {
+    margin-top: 0px;
+}
+
+/* Dark Theme */
+body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+section[data-testid="stSidebar"] {
+    background-color: #111827;
+}
+
+/* button {
+    background-color: #273665 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    height: 45px;
+    font-weight: 600;
+}
+
+div[data-testid="metric-container"] {
+    background-color: #1e293b;
+    padding: 15px;
+    border-radius: 12px;
+} */
+
+/* 🔵 Primary Button Style (Startup Blue) */
+div.stButton > button {
+    background-color: #273665 !important;
+    color: white !important;
+    border-radius: 10px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Hover Effect */
+div.stButton > button:hover {
+    background-color: #69705d !important;
+    transform: scale(1.03);
+}
