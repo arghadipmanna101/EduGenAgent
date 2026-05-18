@@ -2,7 +2,6 @@ streamlit
 psycopg2-binary
 bcrypt
 pandas
-openai
 reportlab
 plotly
 pydantic
