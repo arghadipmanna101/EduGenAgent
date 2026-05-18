@@ -52,9 +52,16 @@ div.stButton > button {
     color: white !important;
     border-radius: 10px !important;
     padding: 10px 24px !important;
-    font-weight: 600 !important;
+    height: 45px;
+    font-weight: 600;
+    cursor: pointer !important;
     border: none !important;
     transition: all 0.3s ease !important;
+}
+
+/* Selectbox cursor pointer */
+select {
+    cursor: pointer !important;
 }
 
 /* Hover Effect */

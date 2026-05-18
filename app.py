@@ -1,6 +1,8 @@
 import os
 import time
 import streamlit as st
+from datetime import timedelta
+from database import get_connection
 
 # ------------------ PAGE CONFIG ------------------
 st.set_page_config(
@@ -79,13 +81,36 @@ st.divider()
 
 st.markdown("## 📈 Platform Statistics")
 
-col1, col2, col3 = st.columns(3)
+@st.cache_data(ttl=timedelta(seconds=30))
+def get_statistics():
+    conn = get_connection()
+    cur = conn.cursor()
+    
+    cur.execute("SELECT COUNT(*) FROM users WHERE role='student'")
+    students = cur.fetchone()[0]
+    
+    cur.execute("SELECT COUNT(*) FROM questions")
+    questions = cur.fetchone()[0]
+    
+    cur.execute("SELECT COUNT(*) FROM test_results")
+    tests = cur.fetchone()[0]
+    
+    cur.close()
+    conn.close()
+    
+    return students, questions, tests
 
-for i in range(0, 101, 10):
-    col1.metric("Active Students", f"{i}+")
-    col2.metric("Questions Generated", f"{i*50}+")
-    col3.metric("Tests Completed", f"{i*30}+")
-    time.sleep(0.05)
+# Display
+col1, col2, col3 = st.columns(3)
+students, questions, tests = get_statistics()
+
+col1.metric("Active Students", f"{students}+")
+col2.metric("Questions Generated", f"{questions}+")
+col3.metric("Tests Completed", f"{tests}+")
+
+st.markdown("<br><br>", unsafe_allow_html=True)
+st.divider()
+
 # ------------------ FOOTER ------------------
 
 st.markdown("""
