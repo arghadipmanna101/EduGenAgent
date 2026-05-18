@@ -4,3 +4,7 @@ bcrypt
 pandas
 openai
 reportlab
+plotly
+pydantic
+crewai
+langchain_community
